@@ -1,0 +1,23 @@
+@font-face{
+    font-family: syfy;
+    src: url(fonts/saucer_bb.ttf);
+    font-stretch: expanded;
+}
+
+@font-face{
+    font-family: hard;
+    src: url(fonts/twentyeight.ttf);
+    
+}
+
+body{
+    font-family: hard;
+    background-color: #000;
+}
+
+.wrapper{
+    color: #fff;
+    background-image: url(images/forrest.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
