@@ -15,9 +15,22 @@ body{
     background-color: #000;
 }
 
+div{
+    position: inherit;
+}
+
 .wrapper{
     color: #fff;
     background-image: url(images/forrest.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.description{
+    padding: 10px;
+    float: right;    
+}
+
+.characterImg{
+    float: none;
 }
