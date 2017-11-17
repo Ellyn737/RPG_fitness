@@ -1,36 +1,76 @@
 @font-face{
-    font-family: syfy;
-    src: url(fonts/saucer_bb.ttf);
-    font-stretch: expanded;
-}
-
-@font-face{
     font-family: hard;
     src: url(fonts/twentyeight.ttf);
     
 }
+html{
+    margin: 0;
+    padding: 0;
+}
 
 body{
     font-family: hard;
+    color: #fff;
     background-color: #000;
+    margin:0;
+    padding:0;
 }
 
-div{
-    position: inherit;
+header{
+    background-image: url(images/forrest.jpg);
+    color:  #ffd633;
+    font-size: 1.4em;
+    margin: 0;
+    /*top right bottom left*/
+    padding: 50px 0 50px 0;
+    text-align: center;
+    line-height: 100px;
 }
+
+p{
+    margin-top: 0;
+    text-align: justify;
+}
+
+a:link{
+    text-decoration: none;
+    /*Yellow*/
+    color: #ffd633;
+}
+
+a:visited{
+    text-decoration: none;
+    /*Yellow*/
+    color: #ffcc00;
+}
+
+a:hover{
+    text-decoration: underline;
+    /*brighter Yellow*/
+    color: #ffcc00;
+}
+
+input{
+    font-family: hard;
+    width: 12em;
+    height: 2em;
+}
+
+input[type=submit]{
+    background-color: #ffd633;
+    color: #000;
+    margin: 5px 0 5px 0;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #000;
+}
+
+
+/*classes and ids*/
 
 .wrapper{
-    color: #fff;
-    background-image: url(images/forrest.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.description{
-    margin: 10px;
-    float: right;    
-}
-
-.characterImg{
-    float: none;
+    background-color: #070d13;
+    /*top right bottom left*/
+    margin: 0 180px 0 180px;
+    padding: 10px 20px 10px 20px;
+    position: relative;
 }
