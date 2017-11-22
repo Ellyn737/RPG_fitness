@@ -1,11 +1,11 @@
 //which card is shown
 var cardStatus = 1;
 //time the card is shown (4 secs)
-var cardTimer = 10000;
+var cardTimer = 7000;
 
 //start the loop
 window.onload = function(){
-    cardLoop();
+    startCardLoop();
 }
 
 var startCardLoop = setInterval(function(){

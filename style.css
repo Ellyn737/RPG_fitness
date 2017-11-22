@@ -88,21 +88,25 @@ input[type=button]{
     margin: 0 auto;
     width: 400px;
     height:600px;
-    overflow: hidden;
-    position: relative;
 }
 
-.chooseWhirling .card{
+.character{
+    margin: 20px 0 20px 0;
+    padding: 20px 0 20px 0;
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 0px;
+    position: relative;
     transition: all ease-in-out 500ms;
-    -webkit-transition: all ease-in-out 500ms;
-    -o-transition:all ease-in-out 500ms;
 }
 
-.chooseWhirling #warrior{
+.character input[type=button]{
+    width: 150px;
+    height: 50px;
+}
+
+
+/*
+#warrior{
     background-image: url(images/warriorCard.png);
     background-size: contain;
     background-position: center;
@@ -110,19 +114,20 @@ input[type=button]{
     
 }
 
-.chooseWhirling #ranger{
+#ranger{
     background-image: url(images/rangerCard.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.chooseWhirling #monk{
+#monk{
     background-image: url(images/monkCard.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
+*/
 
 #you{
     margin: 10px 0;

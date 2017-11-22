@@ -2,25 +2,38 @@
 <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <script type="text/javascript" src="rpg.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+       <!-- <script type="text/javascript" src="rpg.js"></script>-->
         <title>Choose a character</title>
+ 
     </head>
     
     <body>
         <div class="wrapper">
-     
-            <div class="chooseWhirling" id="chooseWhirling" >
-                <div class="card" id="monk"></div>
-                <div class="card" id="ranger"></div>
-                <div class="card" id="warrior"></div>
+            <header>
+                <h1>Choose a character</h1>
+            </header>
+              <div class="character">
+                <div class="card" id="warrior">
+                    <img src="images/warriorCard.png">
+                </div>
+                 <input type="button" name="choose" value= "Become a warrior!" id="becomeA">
             </div>
-            
-            <div>
-                <input type="button" name="choose" value= "Become a warrior!">
+        
+            <div class="character">
+                <div class="card" id="ranger">
+                    <img src="images/rangerCard.png">
+                </div>
+                <input type="button" name="choose" value= "Become a ranger!" id="becomeA">
             </div>
-     
-        </div>
+          
+            <div class="character">
+            <div class="card" id="monk">
+                <img src="images/monkCard.png">
+            </div>
+             <input type="button" name="choose" value= "Become a monk!" id="becomeA">
+            </div>
+        </div>     
     </body>
     
 </html>
