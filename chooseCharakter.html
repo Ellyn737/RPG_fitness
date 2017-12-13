@@ -3,37 +3,105 @@
 
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
-       <!-- <script type="text/javascript" src="rpg.js"></script>-->
         <title>Choose a character</title>
- 
+        <script>
+            
+            /*
+            *   changeL() ruft den vorigen Charakter auf
+            *   wenn ich auf den linken Button drücke
+            */
+            function changeL(){
+                //variablen mit den einzelnen anzusprechenden Elementen
+                //Auswahlbutton
+                var btn = document.getElementById("becomeA");
+
+                //Platzhalter für die Charakterkarten
+                //Buttons nach links und rechts
+                var card = document.getElementById("card");
+                var btnL = document.getElementById("btnL");
+                var btnR = document.getElementById("btnR");
+
+                //Bilder
+                var WImg = "images/warriorCard.png";
+                var RImg = "images/rangerCard.png";
+                var MImg = "images/monkCard.png";
+                
+                //abfragen welche Karte gerade angezeigt wird
+                //die vorige Karte als Bild festlegen 
+                //den Wert des Auswahlbuttons festlegen
+                switch (card.getAttribute("src")){
+                    
+                    case WImg:
+                        card.src = MImg;
+                        btn.innerHTML = 'Become A Monk';
+                        break;
+                    case RImg:
+                        card.src = WImg;
+                        btn.innerHTML = 'Become A Warrior';
+                        break;
+                    case MImg:
+                        card.src = RImg;
+                        btn.innerHTML = 'Become A Ranger';
+                        break;
+                }
+            }
+             
+            /*
+            *   changeR() ruft den nächsten Charakter auf
+            *   wenn ich auf den rechten Button drücke
+            */
+            function changeR(){
+                //Variablen mit den einzelnen anzusprechenden Elementen
+                //Auswahlbutton
+                var btn = document.getElementById("becomeA");
+
+                //Platzhalter für die Charakterkarten
+                //Buttons nach links und rechts
+                var card = document.getElementById("card");
+                var btnL = document.getElementById("btnL");
+                var btnR = document.getElementById("btnR");
+
+                //Bilder
+                var WImg = "images/warriorCard.png";
+                var RImg = "images/rangerCard.png";
+                var MImg = "images/monkCard.png";
+                
+                //abfragen welche Karte gerade angezeigt wird
+                //die vorige Karte als Bild festlegen 
+                //den Wert des Auswahlbuttons festlegen
+                switch (card.getAttribute("src")){
+
+                    case WImg:
+                        card.src = RImg;
+                         btn.innerHTML = 'Become A Ranger';
+                        break;
+                    case RImg:
+                        card.src = MImg;
+                         btn.innerHTML = 'Become A Monk';
+                        break;
+                    case MImg:
+                        card.src = WImg;
+                         btn.innerHTML = 'Become A Warrior';
+                        break;
+                }
+            }
+                    
+        </script>
     </head>
     
     <body>
+                
         <div class="wrapper">
             <header>
                 <h1>Choose a character</h1>
             </header>
-              <div class="character">
-                <div class="card" id="warrior">
-                    <img src="images/warriorCard.png">
-                </div>
-                 <input type="button" name="choose" value= "Become a warrior!" id="becomeA">
-            </div>
-        
-            <div class="character">
-                <div class="card" id="ranger">
-                    <img src="images/rangerCard.png">
-                </div>
-                <input type="button" name="choose" value= "Become a ranger!" id="becomeA">
-            </div>
-          
-            <div class="character">
-            <div class="card" id="monk">
-                <img src="images/monkCard.png">
-            </div>
-             <input type="button" name="choose" value= "Become a monk!" id="becomeA">
-            </div>
+                <button id="btnL" onclick="changeL()">Voriger Charakter</button>
+                <img id="card" src="images/warriorCard.png">
+                <button id="btnR" onclick="changeR()">Nächster Charakter</button>
+                <br>
+             <input type="button" name="choose" value="Become A Warrior" id="becomeA">
         </div>     
+
     </body>
     
 </html>
