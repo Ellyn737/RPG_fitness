@@ -1,6 +1,6 @@
 //which card is shown
 var cardStatus = 1;
-//time the card is shown (4 secs)
+//time the card is shown (7 secs)
 var cardTimer = 7000;
 
 //start the loop
