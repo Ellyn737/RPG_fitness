@@ -20,7 +20,7 @@ header{
     background-image: url(images/forrest.jpg);
     color:  #ffd633;
     font-size: 1.4em;
-    margin: 0;
+    margin: 0 0 10px 0;
     /*top right bottom left*/
     padding: 50px 0 50px 0;
     text-align: center;
@@ -62,13 +62,25 @@ input[type=submit]{
     font-size: 30px;
     background-color: #ffd633;
     color: #000;
-    margin: 5px 0 5px 0;
+    margin: 5px 5px 5px 5px;
     padding: 5px 5px 5px 5px;
     border: 1px solid #000;
 }
 
-form.button {
+div.training {
     text-align: center;
+    margin: 10px auto 10px auto;
+}
+
+div.buttons {
+    text-align: center;
+    margin: 10px;
+
+}
+
+.instruction{
+    margin: 10px auto;
+    font-size: 25px;
 }
 
 /*classes and ids*/
@@ -83,14 +95,16 @@ form.button {
 
 /*slider in training.html (Get Done yet? - Done!)*/
 
-.slider {
+div.slider {
     border: none;
     position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 125px;
+    height: 60px;
+    width: 200px;
+    margin: 10px auto 10px auto;
   }
   
   .slider-checkbox {
@@ -98,10 +112,14 @@ form.button {
   }
   
   .slider-label {
-    border: 2px solid rgb(66, 66, 66);
+    border: 2px solid #666;
+    border-radius: 10px;
     cursor: pointer;
     display: block;
     overflow: hidden;
+    height: 60px;
+    width: 200px;
+   
   }
   
   .slider-inner {
@@ -125,10 +143,14 @@ form.button {
     line-height: 30px;
     padding: 0;
     width: 50%;
+    height: 60px;
+    width: 200px;
   }
   
   .slider-inner:before {
-    background-color: #0376bb;
+    background-color: #00ade2;
+    text-align: left;
+    font-size: 25px;
     color: #fff;
     content: "DONE!";
     padding-left: .75em;
@@ -140,21 +162,23 @@ form.button {
     content: "Done yet?";
     padding-right: .75em;
     text-align: right;
+    font-size: 25px;
+    position: relative;
   }
   
   .slider-circle {
-    background: #fff;
+    background-color: #00ade2;
     border: 2px solid #666;
-    border-radius: 20px;
+    border-radius: 100px;
     bottom: 0;
     display: block;
     margin: 5px;
     position: absolute;
-    right: 91px;
+    right: 150px;
     top: 0;
     -webkit-transition: all 0.3s ease-in 0s;
     transition: all 0.3s ease-in 0s; 
-    width: 20px;
+    width: 30px;
   }
   
   .slider-checkbox:checked + .slider-label .slider-inner {
@@ -162,5 +186,6 @@ form.button {
   }
   
   .slider-checkbox:checked + .slider-label .slider-circle {
+    background-color: #fff;
     right: 0; 
   }

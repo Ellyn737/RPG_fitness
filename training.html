@@ -6,27 +6,42 @@
     </head>
     <body>
         <div class="wrapper">
-            <h1>Das Training wartet auf Dich!</h1>
+            <header>
+                <h1>Das Training wartet auf Dich!</h1>
+            </header>
 
-            <div id="training">
+            <h2>Bist du bereit für das Training?</h2>
+                   <p> Aber Halt! Warte! Was nützt es einem stärker und besser zu werden, wenn man sich verletzt? Darum solltest du dich vor jedem Training aufwärmen. Damit deine Muskeln ihre volle Leistung bringen können und du bereit bist für jede weitere Herausforderung!
+                    Wenn du mit dem Aufwärmen fertig bist beginne das Training:
+                    </p>
+
+            <div class="training">
                 <!--Hier kommen die Trainingbilder + Beschreibung rein-->
+                <img src="images/workout_yoga/workout_yoga1.jpg">
+               
+                <div class="instruction">
+                    <p>Hier kommt die Beschreibung der Trainingseinheit rein!</p>
+                </div>
+
             </div>
 
-            <div class="slider">
-                <input type="checkbox" name="slider" class="slider-checkbox" id="sliderSwitch">
-                <label class="slider-label" for="sliderSwitch">
-                    <span class="slider-inner"></span>
-                    <span class="slider-circle"></span>
-                </label>
+                <div class="buttons">
+                    <div class="slider">
+                        <input type="checkbox" name="slider" class="slider-checkbox" id="sliderSwitch">
+                        <label class="slider-label" for="sliderSwitch">
+                            <span class="slider-inner"></span>
+                            <span class="slider-circle"></span>
+                        </label>
+                    </div>
+
+                <div class="back">
+                    <input type="submit" value="Zurueck"  onclick="history.back()">
+                    <input type="submit" value="Fertig">
+                </div>
             </div>
-
-            <form class="back">
-                <input type="submit" value="Zurueck"  onclick="history.back()">
-            </form>
-
 
         </div>
-                
+
         
     </body>
 </html>
