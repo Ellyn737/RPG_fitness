@@ -7,25 +7,47 @@
     </head>
     <body>
         <div class="wrapper">
-            <p>Gib hier deine Daten an.</p>
+            <header>
+                <h1>Registrier Dich</h1>
+            </header>
+            
             <form>
-                <input type="text" name="username" value="Dein Benutzername">
-                <br>
-                <input type="number" name="height" value="Deine Groeße in cm">
-                <br>
-                <input type="number" name="weight" value="Dein Gewicht">
-                <br>
-                <input type="number" name="age" value="Dein Alter">
-                <br>
-                <input type="password" name="pw" value="Dein Passwort">
-                <br>
-                <input type="password" name="pwAgain" value="Passwort wiederholen">
-                <br>
-                <input type="radio" name="geschlecht" value="männlich">maennlich
-                <br>
-                <input type="radio" name="geschlecht" value="weiblich">weiblich
-                <br>
-                <input type="submit" name="register" value="Registrier Dich!">
+                <p>Gib hier deine Daten an:</p>
+                <div>
+                    <label for="username">Dein Username: </label>
+                    <br>
+                    <input type="text" name="username">
+                    <br>
+                    <label for="height">Deine Groesse in Centimetern: </label>
+                    <br>
+                    <input type="number" name="height">
+                    <br>
+                    <label for="weight">Dein Gewicht: </label>
+                    <br>
+                    <input type="number" name="weight">
+                    <br>
+                    <label for="age">Dein Alter: </label>
+                    <br>
+                    <input type="number" name="age">
+                    <br>
+                    <label for="pw">Dein Passwort: </label>
+                    <br>
+                    <input type="password" name="pw">
+                    <br>
+                    <label for="pwAgain">Passwort wiederholen: </label>
+                    <br>
+                    <input type="password" name="pwAgain">
+                    <br>
+                    <label>Dein Geschlecht: </label>
+                    <br>
+                    <label>
+                       <input type="radio" name="geschlecht" value="männlich">maennlich</label>
+                    <br>
+                    <label>
+                        <input type="radio" name="geschlecht" value="weiblich">weiblich</label>
+                    <br>
+                    <a href="chooseCharakter.html"><input type="button" name="register" value="Registrier Dich!"/></a>
+                </div>
             </form>
         </div>
     </body>
