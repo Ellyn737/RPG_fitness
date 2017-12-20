@@ -21,7 +21,7 @@ header{
     background-image: url(images/forrest.jpg);
     color:  #ffd633;
     font-size: 1.4em;
-    margin: 0 0 0 5px;
+    margin: 0 0 0 20px;
     /*top right bottom left*/
     padding: 50px 0 50px 0;
     text-align: center;
@@ -83,6 +83,7 @@ input[type=button]{
     position: relative;
     text-align: center;
 }
+
 
 .character{
     margin: 20px 0 20px 0;
