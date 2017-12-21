@@ -1,5 +1,8 @@
 <?php
-
-	$username = $_POST["username"];
+    
+    $servername = "localhost";
+    $username = "root";
+    $password = "password";
+    $dbname = ""
 	
 ?>
