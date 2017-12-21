@@ -3,6 +3,14 @@
     src: url(fonts/twentyeight.ttf);
     
 }
+
+@font-face{
+    font-family: play;
+    src: url(fonts/play.ttf);
+}
+
+
+
 html{
     margin: 0;
     padding: 0;
@@ -10,7 +18,7 @@ html{
 
 body{
     
-    font-family: hard;
+    font-family: play;
     color: #fff;
     background-color: rgb(94, 0, 0);
     margin:0;
@@ -18,6 +26,7 @@ body{
 }
 
 header{
+    font-family: hard;
     background-image: url(images/forrest.jpg);
     color:  #ffd633;
     font-size: 1.4em;
@@ -27,6 +36,10 @@ header{
     padding: 50px 0 50px 0;
     text-align: center;
     line-height: 100px;
+}
+
+h1{
+    font-family: hard;
 }
 
 p{
@@ -69,19 +82,6 @@ input[type=submit]{
 
 input[type=radio]{
     text-align: justify;
-}
-
-/*General Buttons/allgemeine Buttons, wie Zurück, weiter etc.*/
-#gButtons{
-
-    background-color: #ffd633;
-    color: #000;
-    margin: 5px 5px 5px 5px;
-    padding: 5px 5px 5px 5px;
-    border: 1px solid #000;
-    height: 60px;
-    width: 200px;
-    font-size: 30px;
 }
 
 div.training {
@@ -133,16 +133,27 @@ div.buttons {
     text-align: left;
 }
 
-#train{
-    text-align: center;
+.sideBtn{
     background-color: #ffd633;
     color: #000;
-    margin: 5px 5px 5px 5px;
+}
+
+/*General Buttons/allgemeine Buttons, wie Zurück, weiter etc.*/
+.gButtons{
+
+    background-color: #ffd633;
+    color: #000;
+    margin: 20px 5px 5px 5px;
     padding: 5px 5px 5px 5px;
     border: 1px solid #000;
     height: 60px;
-    width: 200px;
+    min-width: 200px;
     font-size: 30px;
+    text-align: center;
+}
+
+#train{
+    float: right;
 }
 
 
