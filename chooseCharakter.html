@@ -75,7 +75,7 @@
 
                     case WImg:
                         card.src = RImg;
-                         btn.innerHTML = 'Become A Ranger';
+                         btn.setAttribute("value") = 'Become A Ranger';
                         break;
                     case RImg:
                         card.src = MImg;
@@ -99,12 +99,13 @@
             <header>
                 <h1>Choose a character</h1>
             </header>
-            
-            <button class="sideBtn" id="btnL" onclick="changeL()">Voriger Charakter</button>
-            <img id="card" src="images/warriorCard.png">
-            <button class="sideBtn" id="btnR" onclick="changeR()">Nächster Charakter</button>
+            <div id="characterDiv">
+                <input type="button" class="sideBtn" id="btnL" onclick="changeL()" value="<">
+                <img id="card" src="images/warriorCard.png">
+                <input type="button" class="sideBtn" id="btnR" onclick="changeR()" value=">">
+            </div>
             <br>
-            <a href="profil.html"><input type="button" class="gButtons" name="choose" value="Become A Warrior" id="becomeA"></a>
+            <a href="profil.html"><input type="button" class="gButtons" id="becomeA" name="choose" value="Become A Warrior"></a>
             
         </div>     
 
