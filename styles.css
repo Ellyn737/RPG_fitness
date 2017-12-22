@@ -167,13 +167,13 @@ div.slider {
   
   .slider-label {
     border: 2px solid #666;
-    border-radius: 20px;
+    border-radius: 30px;
     cursor: pointer;
     display: block;
     overflow: hidden;
     height: 60px;
     width: 200px;
-   
+
   }
   
   .slider-inner {
@@ -194,33 +194,33 @@ div.slider {
     font-size: 14px;
     font-weight: bold;
     line-height: 30px;
-    padding: 0;
+    padding: 12px;
     width: 50%;
     height: 60px;
   }
   
   .slider-inner:before {
-    background-color: #00ade2;
+    background-color: #ffd633;
     text-align: left;
-    font-size: 25px;
-    color: #fff;
-    content: "DONE!";
+    font-size: 27px;
+    color: rgb(0, 0, 0);
+    content: "I'M DONE!";
     padding-left: .75em;
   }
   
   .slider-inner:after {
-    background-color: #eee;
-    color: #666;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     content: "Done yet?";
     padding-right: .75em;
     text-align: right;
-    font-size: 25px;
+    font-size: 27px;
     position: relative;
   }
   
   .slider-circle {
-    background-color: #00ade2;
-    border: 2px solid #666;
+    background-color: #ffd633;
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 100px;
     bottom: 0;
     display: block;
@@ -238,6 +238,6 @@ div.slider {
   }
   
   .slider-checkbox:checked + .slider-label .slider-circle {
-    background-color: #fff;
+    background-color: #ffffff;
     right: 0; 
   }
