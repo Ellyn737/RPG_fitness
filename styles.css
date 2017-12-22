@@ -167,7 +167,7 @@ div.slider {
   
   .slider-label {
     border: 2px solid #666;
-    border-radius: 10px;
+    border-radius: 20px;
     cursor: pointer;
     display: block;
     overflow: hidden;
@@ -193,12 +193,10 @@ div.slider {
     font-family: sans-serif;
     font-size: 14px;
     font-weight: bold;
-    height: 30px;
     line-height: 30px;
     padding: 0;
     width: 50%;
     height: 60px;
-    width: 200px;
   }
   
   .slider-inner:before {
