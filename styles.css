@@ -16,15 +16,6 @@ html{
     padding: 0;
 }
 
-body{
-    
-    font-family: play;
-    color: #fff;
-    background-color: rgb(94, 0, 0);
-    margin:0;
-    padding:0;
-}
-
 header{
     font-family: hard;
     background-image: url(images/forrest.jpg);
@@ -36,6 +27,15 @@ header{
     padding: 50px 0 50px 0;
     text-align: center;
     line-height: 100px;
+}
+
+body{
+    
+    font-family: play;
+    color: #fff;
+    background-color: rgb(94, 0, 0);
+    margin:0;
+    padding:0;
 }
 
 h1{
@@ -66,13 +66,15 @@ a:hover{
 }
 
 input{
-    font-family: hard;
+    font-family: play;
     width: 12em;
     height: 2em;
     margin: 5px 0 0 0;
     
 }
-
+input[type=text]{
+    font-style: none;
+}
 
 input[type=submit]{
     height: 60px;

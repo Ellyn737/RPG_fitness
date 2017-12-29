@@ -4,8 +4,8 @@
 
             $servername = "localhost";
             $username = "root";
-            $password = "schWEden";
-            $dbname = "rpg_fitness"
+            $password = "";
+            $dbname = "rpg_fitness";
 
 
             //create connection
@@ -16,10 +16,8 @@
                 die("Connection failed: " .$conn -> connect_error);
             }
             else{
-                echo("Connected");
+                echo("Connected ");
             }
-        
-            echo $username;
         ?>
     </body>
 </html>
