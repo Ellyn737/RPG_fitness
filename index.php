@@ -13,7 +13,7 @@
             <h1>Level up and get strong</h1>
         </header>
             
-        <form action="login.php" method="post">
+        <form action="" method="post" target="">
             <label for="username">Username:</label>
             <br>
             <input type="text" name="username">

@@ -78,7 +78,7 @@ input[type=text]{
 
 input[type=submit]{
     height: 60px;
-    width: 200px;
+    min-width: 200px;
     font-size: 30px;
 }
 

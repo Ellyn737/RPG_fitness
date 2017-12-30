@@ -21,14 +21,14 @@
         if($conn->connect_error){
             die("Connection failed: " . $conn->connect_error);
         }else{
-            echo "connected";
+            echo "connected" ."<br>";
         }
         
         
         //die eingaben von unnötigen Zeichen befreien
         //Fehlermeldungen, wenn etwas fehlt
         //leere variablen definieren
-        $nameErr = $pwErr = $pwErr2 = $gendErr = "";
+        $nameErr = $pwErr = $pwErr2 = $gendErr = $submitTxt = "";
         
         if($_SERVER["REQUEST_METHOD"] == "POST"){
            
@@ -56,19 +56,42 @@
                  $gender = trim($_POST["geschlecht"]);
             }
         
-        
-            //insert data
-            $sql = "INSERT INTO user (USER_NAME, PASSWORD, GENDER, LEVEL, XP) VALUES ('$name', '$pw1', '$gender', 0, 0)";
             
-            //send data
-           if($conn->query($sql)===TRUE){
-               echo "New record created successfully";
-           }else{
-             echo "Error: " .$sql ."<br>" .$conn->error;  
-           }
-            
-            //close connection
-            $conn->close();
+            //passwords match
+            if($pw1 === $pw2){
+                //only insert data when all fields are filled
+                if($name !='' && $pw1 !='' && $pw2 !='' && $gender !=''){
+                    $check = "SELECT * FROM user WHERE USER_NAME = '$name'";
+                    $rows = mysqli_query($conn, $check);
+                    $data = mysqli_fetch_array($rows, MYSQLI_NUM);
+                    
+                    //only insert if user does not exist allready
+                    if($data[0] <1){
+                        
+                        //insert data
+                        $sql = "INSERT INTO user (USER_NAME, PASSWORD, GENDER, LEVEL, XP) VALUES ('$name', '$pw1', '$gender', 0, 0)";
+
+                        //send data
+                       if($conn->query($sql)===TRUE){
+                           $submitTxt = "New record created successfully";
+                       }else{
+                         $submitTxt = "Error: " .$sql ."<br>" .$conn->error;  
+                       }
+
+                        //close connection
+                        $conn->close();
+
+                        //open login page
+                        header("Location: http://localhost/rpg_fitness/index.php");
+                        }else{
+                        $submitTxt = "This user allready exist. Please login <a href='index.php'>HERE</a>.";
+                    }
+                }else{
+                    $submitTxt = "Please fill out ALL fields";
+                }
+            }else{
+                $pwErr2 = "Your passwords do NOT match";
+            }
         }
         ?>
         
@@ -117,7 +140,9 @@
                 <label><input type="radio" name="geschlecht" value="female">female</label>
                 <span class="error">* <?php echo $gendErr;?></span>
                 <br>
-                <!--<a href="chooseCharakter.html">--><input type="submit" class="gButtons" name="register" value="Registere Here"/><!--</a>-->
+                <span class="error"><?php echo $submitTxt?></span>
+                <br>
+                <!--<a href="chooseCharakter.html">--><input type="submit" class="gButtons" value="Registere Here"/><!--</a>-->
             </form>    
         </div>
     </body>
