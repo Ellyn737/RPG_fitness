@@ -142,7 +142,7 @@
                 <br>
                 <span class="error"><?php echo $submitTxt?></span>
                 <br>
-                <!--<a href="chooseCharakter.html">--><input type="submit" class="gButtons" value="Registere Here"/><!--</a>-->
+                <input type="submit" class="gButtons" value="Registere Here"/>
             </form>    
         </div>
     </body>
