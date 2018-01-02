@@ -7,7 +7,7 @@
     <body>
         <!--php-->
         
-        <?php
+        <?php        
         //variables for connection
         $servername = "localhost";
         $username = "root";
@@ -24,18 +24,20 @@
             echo "connected" ."<br>";
         }
         
+        //to save variables to other pages
+        session_start();
         
         //die eingaben von unnötigen Zeichen befreien
         //Fehlermeldungen, wenn etwas fehlt
         //leere variablen definieren
-        $nameErr = $pwErr = $pwErr2 = $gendErr = $submitTxt = "";
+        $nameErr = $pwErr = $pwErr2 = $gendErr = $submitTxt = $name = "";
         
         if($_SERVER["REQUEST_METHOD"] == "POST"){
            
-            if(empty($_POST["name"])){
+            if(empty($_POST["yName"])){
                 $nameErr = "Name is required";
             }else{
-                 $name = trim($_POST["name"]);
+                 $name = trim($_POST["yName"]);
             }
             
             if(empty($_POST["pw"])){
@@ -78,11 +80,13 @@
                          $submitTxt = "Error: " .$sql ."<br>" .$conn->error;  
                        }
 
+                        //set name variable for chooseCharacter   
+                        $_SESSION['yName'] = $name;
+                        $_SESSION['geschlecht'] = $gender;
+                        //open chooseCharakter page
+                        header("Location: http://localhost/rpg_fitness/chooseCharakter.php");
                         //close connection
                         $conn->close();
-
-                        //open login page
-                        header("Location: http://localhost/rpg_fitness/index.php");
                         }else{
                         $submitTxt = "This user allready exist. Please login <a href='index.php'>HERE</a>.";
                     }
@@ -93,6 +97,7 @@
                 $pwErr2 = "Your passwords do NOT match";
             }
         }
+        
         ?>
         
         
@@ -105,11 +110,11 @@
             <!--PHP_SELF sorgt dafür, dass man in diesem php bleibt-->
             <form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>" >
                 <p>Please enter your data:</p>
-                <label for="name">Your Username: </label>
+                <label for="yName">Your Username: </label>
                 <br>
-                <input type="text" name="name">
+                <input type="text" name="yName">
                 <span class="error">* <?php echo $nameErr;?></span>
-                <br>
+                <br>    
                 <!--
                 <label for="height">Deine Groesse in Centimetern: </label>
                 <br>

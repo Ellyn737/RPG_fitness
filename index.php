@@ -25,7 +25,8 @@
             }else{
                 echo "connected" ."<br>";
             }
-        
+            //for variables from other pages
+            session_start();
         
             if($_SERVER["REQUEST_METHOD"] == "POST"){
                 
@@ -33,10 +34,10 @@
                 
                 //get input and trim it
                 //if input is empty --> error
-                if(empty($_POST["name"])){
+                if(empty($_POST["nameLog"])){
                     $namErr = "Please insert your username";
                 }else{
-                    $name = trim($_POST["name"]);
+                    $name = trim($_POST["nameLog"]);
                 }
                 if(empty($_POST["pw"])){
                     $pwErr = "Please fill in your password";
@@ -56,8 +57,8 @@
                         
                         //if they match 
                         if($otherPW === $pw && !empty($name)){
-                            //get user_id to profile.php!!!!!!!!!!!!!!!!!!!!!!!!
-                            
+                            //set name variable for profile header
+                            $_SESSION['nameLog'] = $name;
                             //go to profile
                             header("Location: http://localhost/rpg_fitness/profil.php");
                         }else{
@@ -67,10 +68,13 @@
                 }else{
                     $namErr = "This user doesn't exist. Please register below";
                 }
-
-               $conn->close();
             }
+               $conn->close();
+            
+            
         ?>
+        
+        
         
         <div class="wrapper">
             <header>
@@ -80,7 +84,7 @@
             <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
                 <label for="name">Username:</label>
                 <br>
-                <input type="text" name="name">
+                <input type="text" name="nameLog">
                 <span class="error">* <?php echo $namErr ?></span>
                 <br>
                 <label for="pw">Password:</label>
