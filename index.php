@@ -60,7 +60,7 @@
                             //set name variable for profile header
                             $_SESSION['nameLog'] = $name;
                             //go to profile
-                            header("Location: http://localhost/rpg_fitness/profil.php");
+                            header("Location: http://localhost/rpg_fitness/profil2.php");
                         }else{
                             $pwErr = "The passwords don't match";
                         }
@@ -94,8 +94,8 @@
                 <br>
                 <input type="submit" class="gButtons" name="login" value="Login!">
 
-                <p>If you are not registered yet, do it <a href="registration.html">HERE</a>.</p>
+                <p>If you are not registered yet, do it <a href="registration.php">HERE</a>.</p>
             </form>
         </div>
     </body>
-</html> 
+</html>
