@@ -64,7 +64,7 @@
             
             
             //insert ids, timestamp
-            $sql2 = "INSERT INTO user_choose_character (CHARACTER_ID, USER_ID, DATE) VALUES ('$characterID', '$otherId', '$date')";
+            $sql2 = "INSERT INTO chosen (FIGUREN_ID, USER_ID, DATE) VALUES ('$characterID', '$otherId', '$date')";
 
             if($conn->query($sql2)===TRUE){
                 echo "New record created successfully";

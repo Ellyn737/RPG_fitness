@@ -42,6 +42,7 @@
         $headerName = $_SESSION['nameLog'];
         $usernameShow = $headerName;
 
+        //get xp and level from db
         $sql="SELECT XP, LEVEL FROM user WHERE USER_NAME = '$headerName'";
         $result = $conn->query($sql);
         while($row = $result->fetch_assoc()){
@@ -49,7 +50,44 @@
             $level = $row["LEVEL"];
             echo $xp;
             echo $level;}
-
+        
+        /*
+         //switch für richtige img_url
+        switch(){
+            case ("Warrior"):
+                echo "Warrior";
+                //set url
+                $characterUrl = "images/warriorCard.png";
+                break;
+            case ("Ranger"):
+                echo "Ranger";
+                //set url
+                $characterUrl = "images/rangerCard.png";
+                break;
+            case ("Monk"):
+                echo "Monk";
+                //set url
+                $characterUrl = "images/monkCard.png";
+                break;
+            case ("WarriorF"):
+                echo "WarriorF";
+                //set url
+                $characterUrl = "images/warriorFCard.png";
+                break;
+            case ("RangerF"):
+                echo "RangerF";
+                //set url
+                $characterUrl = "images/rangerFCard.png";
+                break;
+            case ("MonkF"):
+                echo "MonkF";
+                //set url
+                $characterUrl = "images/monkFCard.png";
+                break;
+        }
+        
+        */
+        
         ?>
 
 
