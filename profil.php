@@ -26,8 +26,8 @@
         }
         //get name from index.php
         session_start();
-        $headerName = $_SESSION['nameLog'];
-        $usernameShow = $headerName;
+        //$headerName = $_SESSION['nameLog'];
+        //$usernameShow = $headerName;
         
         //user_id holen
         $sql = "SELECT USER_ID FROM user WHERE USER_NAME = $headerName";
@@ -89,15 +89,29 @@
         }
         
     ?>
+
     <div class="wrapper">
     <header>
         <h1 id="du"><?php echo $usernameShow ?></h1>
     </header>
     
-        <div id="level">
-            <!--Hier kommt das Level und eine Anzeige für die Erfahrungspunkte hin!-->
+    <div class="level">
 
-        </div>
+
+<div id="progress">
+
+<div id="pos">&nbsp;</div>
+
+</div>
+
+<div class="display">
+
+ <p>LEVEL</p>
+
+   </div>
+
+
+  </div>
         <div class="card" id="you">
             <img src="<?php echo $characterUrl ?>">
             <input type="button" id="train" class="gButtons" value="Your Training" onclick="window.location.href='training.html'">
