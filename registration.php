@@ -7,7 +7,9 @@
     <body>
         <!--php-->
         
-        <?php        
+        <?php  
+        //to save variables to other pages
+        session_start();
         //variables for connection
         $servername = "localhost";
         $username = "root";
@@ -23,9 +25,6 @@
         }else{
             echo "connected" ."<br>";
         }
-        
-        //to save variables to other pages
-        session_start();
         
         //die eingaben von unnötigen Zeichen befreien
         //Fehlermeldungen, wenn etwas fehlt
@@ -115,20 +114,6 @@
                 <input type="text" name="yName">
                 <span class="error">* <?php echo $nameErr;?></span>
                 <br>    
-                <!--
-                <label for="height">Deine Groesse in Centimetern: </label>
-                <br>
-                <input type="number" name="height">
-                <br>
-                <label for="weight">Dein Gewicht: </label>
-                <br>
-                <input type="number" name="weight">
-                <br>
-                <label for="age">Dein Alter: </label>
-                <br>
-                <input type="number" name="age">
-                <br>
-                -->
                 <label for="pw">Your Password: </label>
                 <br>
                 <input type="password" name="pw">
