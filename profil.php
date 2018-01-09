@@ -24,11 +24,27 @@
         }else{
             echo "connected" ."<br>";
         }
+    
+    
         //get name from index.php
         session_start();
         $headerName = $_SESSION['nameLog'];
         $usernameShow = $headerName;
         
+    
+        //hole xp und level
+        $sql = "SELECT XP, LEVEL FROM user WHERE USER_NAME = '$headerName'";
+        $result = $conn->query($sql);
+        while($row = $result2->fetch_assoc()){
+            $xp = $row["XP"];
+            $level = $row["LEVEL"];
+            echo $xp;
+            echo $level;
+        }
+    
+        
+    
+        /*
         //user_id holen
         $sql = "SELECT USER_ID FROM user WHERE USER_NAME = $headerName";
         $result = $conn->query($sql);
@@ -37,7 +53,7 @@
         echo $userId;
         
         
-        //character_id holen
+        //character_id holen  
         $sql2 = "SELECT CHARACTER_ID FROM user_choose_character WHERE USER_ID = '$userId' ";
         $result2 = $conn->query($sql2);
         while($row = $result2->fetch_assoc()){
@@ -53,7 +69,7 @@
             echo $characterName;
         }
     
-    
+    */
         //switch für richtige img_url
         switch($characterName){
             case ("Warrior"):

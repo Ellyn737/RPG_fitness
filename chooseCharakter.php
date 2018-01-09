@@ -22,7 +22,6 @@
 
         //get yName from registration
         $yourName = $_SESSION['yName'];
-       // $gend = $_SESSION['geschlecht']; 
     
         //get gender for right picture
         $sqlG = "SELECT GENDER, USER_ID FROM user WHERE USER_NAME = '$yourName'";
@@ -37,31 +36,30 @@
         
         //if clicked on btn
         if($_SERVER["REQUEST_METHOD"] == "POST"){
-
+            
             //get value from hidden input character
-            $characterValue = "";
-            if(!empty($_POST["charVal"])){
+            if(empty($_POST["charVal"])){
+                echo "did not recieve the character";
+            }else{
                 $characterValue = $_POST["charVal"];
-                echo $characterValue;
             }
-
+          
+            
+            echo $characterValue;
+                
             
             //get character_id
-            $sql3 = "SELECT CHARACTER_ID FROM character WHERE CHARACTER_NAME = '$characterValue'";
-            $result3 = $conn->query($sql3);  
-            if($result3->num_rows > 0){
-                while($row3 = $result3->fetch_assoc()){
-                    $characterID = $row3["CHARACTER_ID"];
-                }
+            $sql = "SELECT * FROM figuren WHERE FIGUREN_NAME = '$characterValue'";        
+            $result = mysqli_query($conn, $sql);  
+                while($row = mysqli_fetch_array($result)){
+                    $characterID = $row["FIGUREN_ID"];
             }
-            echo $characterId;
+           
             
-
+            echo $characterID;
             
-            //get formatted time
-            $date = new DateTime();
-            $date->getTimestamp();
-            $date->format('Y-m-d H:i:s');
+        
+            $date = date('Y-m-d H:i:s');
             echo $date;
             
             
@@ -71,7 +69,7 @@
             if($conn->query($sql2)===TRUE){
                 echo "New record created successfully";
             }else{
-                echo "Error: " .$sql ."<br>" .$conn->error;  
+                echo "Error: " .$sql2 ."<br>" .$conn->error;  
             }
 
             
@@ -80,6 +78,7 @@
 
             //open login page
             header("Location: http://localhost/rpg_fitness/index.php");
+            
         }
  
 
@@ -102,7 +101,7 @@
             <br>
             <form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
                 <input type="hidden" name="charVal" id="character" value="">
-                <input type="button" class="gButtons" id="becomeA" name="choose" value="Become A Warrior">
+                <input type="submit" class="gButtons" id="becomeA" name="choose" value="Become A Warrior">
             </form>
         </div>     
 
@@ -117,7 +116,9 @@
             var card = document.getElementById("card");
             var btnL = document.getElementById("btnL");
             var btnR = document.getElementById("btnR");
-
+            //character hidden input
+            var character = document.getElementById("character");
+            
             //Bilder
             var WImg = "images/warriorCard.png";
             var RImg = "images/rangerCard.png";
@@ -126,17 +127,18 @@
             var RFImg = "images/rangerFCard.png";
             var MFImg = "images/monkFCard.png";
 
-            //character
-            var character = document.getElementById('character');
+          
             
             //grundbild setzen
             var gender = "<?php echo htmlspecialchars($otherG); ?>";          
             
             if(gender == "male"){
                 card.src = "images/warriorCard.png";
+                character.value = "Warrior";
             }
             else if(gender == "female"){
                 card.src = "images/warriorFCard.png";
+                character.value = "WarriorF";
             }
             
             /*

@@ -70,7 +70,7 @@
                     if($data[0] <1){
                         
                         //insert data
-                        $sql = "INSERT INTO user (USER_NAME, PASSWORD, GENDER, LEVEL, XP) VALUES ('$name', '$pw1', '$gender', 0, 0)";
+                        $sql = "INSERT INTO user (USER_NAME, PASSWORD, GENDER, LEVEL, XP) VALUES ('$name', '$pw1', '$gender', 1, 0)";
 
                         //send data
                        if($conn->query($sql)===TRUE){
@@ -103,7 +103,7 @@
         <!--html aufbau-->
         <div class="wrapper">
             <header>
-                <h1>Registere</h1>
+                <h1>Register</h1>
             </header>
             
             <!--PHP_SELF sorgt dafür, dass man in diesem php bleibt-->
