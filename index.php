@@ -69,8 +69,10 @@
                     $namErr = "This user doesn't exist. Please register below";
                 }
             }
-               $conn->close();
             
+        $conn->close();
+        //session beenden
+        session_write_close();
             
         ?>
         

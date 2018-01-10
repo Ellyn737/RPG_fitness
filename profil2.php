@@ -3,27 +3,14 @@
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Profile</title>
-
-    <script type="text/javascript">
-
-            var points = "<?php echo $xp?>";
-            document.getElementById("pos");
-            points.style.width+=points + "%";
-
-                document.write(points);
-
-    </script>
-
-</head>
-<body>
-        <?php
+            <?php
 
         $characterUrl = $usernameShow = "*";
         //get user id --> charactercard und username
         //variables for connection
         $servername = "localhost";
         $username = "root";
-        $password = "test";
+        $password = "";
         $dbname = "rpg_fitness";
 
         //build connection
@@ -40,32 +27,32 @@
         session_start();
         $headerName = $_SESSION['nameLog'];
         $usernameShow = $headerName;
-
-        //get xp and level from db
-        $sql="SELECT XP, LEVEL FROM user WHERE USER_NAME = '$headerName'";
+        echo $usernameShow;
+        
+     
+        //get user_id, xp and level from db
+        $sql="SELECT XP, LEVEL, USER_ID FROM user WHERE USER_NAME = '$headerName'";
         $result = $conn->query($sql);
         while($row = $result->fetch_assoc()){
             $xp = $row["XP"];
             $level = $row["LEVEL"];
+            $userId = $row["USER_ID"];
             echo $xp;
             echo $level;
-        }
-        
-        //user_id holen
-        $sql1 = "SELECT USER_ID FROM user WHERE USER_NAME = '$headerName'";
-        $result1 = $conn->query($sql1);
-        while($row = $result1->fetch_assoc()){
-            $userId = $row["USER_ID"];
             echo $userId;
         }
+       
+ 
 
         //character_id holen
-        $sql2 = "SELECT FIGUREN_ID FROM chosen WHERE USER_ID = '$userId' ";
-        $result2 = $conn->query($sql2);
-        while($row = $result2->fetch_assoc()){
-            $characterId = $row["FIGUREN_ID"];
+        $sqlF = "SELECT FIGUREN_ID FROM chosen WHERE USER_ID = '$userId'";
+        $resultF = $conn->query($sqlF);
+        while($rowF = $resultF->fetch_assoc()){
+            $characterId = $rowF["FIGUREN_ID"];
             echo $characterId;
         }
+            
+       
 
         //character_name holen
         $sql3 = "SELECT FIGUREN_NAME FROM figuren WHERE FIGUREN_ID = '$characterId'";
@@ -109,38 +96,43 @@
                 break;
         }
         
-
+        $conn->close();
+        //session beenden
+        session_write_close();
         
         ?>
-
-
-            <div class="wrapper">
-                <header>
-                    <h1 id="du"><?php echo $usernameShow ?></h1>
-                </header>
-
-                <div class="level">
-
-
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1 id="du"><?php echo $usernameShow ?></h1>
+        </header>
+        
+        <div class="level">
             <div id="progress">
-
-            <div id="pos">
+                <div id="pos"></div>
             </div>
+        </div>
 
-            </div>
-               </div>
+        <div class="display">
+            <p id="level">Your Level:
+            <br> <?php echo $level ?></p>
+            <h2>Be Ready!</h2>
+            <h2>The next Challenge is waiting for you!</h2>
+            <button id="train" class="gButtons" onclick="window.location.href='training.php'">Start Training</button>
+        </div>
+        <div class="card" >
+            <img id="you" src="<?php echo $characterUrl ?>">
+        </div>
+    </div>
+    
+    <script type="text/javascript">
 
-                        <div class="display">
-                                <p id="level">Your Level:
-                                <br> <?php echo $level ?></p>
-                            <h2>Be Ready!</h2>
-                            <h2>The next Challenge is waiting for you!</h2>
-                        <input type="button" id="train" class="gButtons" value="Start Training" onclick="window.location.href='training.php'">
+        var points = "<?php echo $xp?>";
+        var posDiv = document.getElementById("pos"):      
+        posDiv.style.width = points + "%";
+        document.write("<br>" + points);
 
-                    </div>
-                   <div class="card" >
-                    <img id="you" src="<?php echo $characterUrl ?>">
-                    </div>
-                </div>
-            </body>
-            </html>
+    </script>
+</body>
+</html>

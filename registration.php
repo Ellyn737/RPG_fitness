@@ -86,6 +86,8 @@
                         header("Location: http://localhost/rpg_fitness/chooseCharakter.php");
                         //close connection
                         $conn->close();
+                        //session beenden
+                        session_write_close();
                         }else{
                         $submitTxt = "This user allready exist. Please login <a href='index.php'>HERE</a>.";
                     }

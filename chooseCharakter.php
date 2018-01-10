@@ -75,6 +75,9 @@
             
             //close connection
             $conn->close();
+            
+            //session beenden
+            session_write_close();
 
             //open login page
             header("Location: http://localhost/rpg_fitness/index.php");
