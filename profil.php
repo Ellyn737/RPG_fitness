@@ -12,7 +12,7 @@
         //variables for connection
         $servername = "localhost";
         $username = "root";
-        $password = "";
+        $password = "test";
         $dbname = "rpg_fitness";
 
         //build connection

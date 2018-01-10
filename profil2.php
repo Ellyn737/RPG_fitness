@@ -3,6 +3,9 @@
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Profile</title>
+
+
+
             <?php
 
         $characterUrl = $usernameShow = "*";
@@ -10,7 +13,7 @@
         //variables for connection
         $servername = "localhost";
         $username = "root";
-        $password = "";
+        $password = "test";
         $dbname = "rpg_fitness";
 
         //build connection
@@ -100,9 +103,20 @@
         //session beenden
         session_write_close();
         
+        echo "<div style=\
+    background-color: #ffd633;
+    height: 100%;
+    width: 10%;
+\>"
+
         ?>
+
+
 </head>
 <body>
+
+
+
     <div class="wrapper">
         <header>
             <h1 id="du"><?php echo $usernameShow ?></h1>
@@ -110,7 +124,8 @@
         
         <div class="level">
             <div id="progress">
-                <div id="pos"></div>
+                <div id="pos">
+                </div>
             </div>
         </div>
 
@@ -126,13 +141,14 @@
         </div>
     </div>
     
-    <script type="text/javascript">
+        <script type="text/javascript">
+            var Div = document.getElementById("pos");
+            var points = parseInt('<?php echo $xp?>');
+            var posDiv = parseInt(points) + '%';
 
-        var points = "<?php echo $xp?>";
-        var posDiv = document.getElementById("pos"):      
-        posDiv.style.width = points + "%";
-        document.write("<br>" + points);
+            Div.style.width = posDiv;
+        document.write(posDiv);
 
-    </script>
+        </script>
 </body>
 </html>
