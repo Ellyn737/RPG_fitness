@@ -13,34 +13,24 @@
 
             //build connection
             $conn = new mysqli($servername, $username, $password, $dbname);
-
+/*
             //check connection
             if($conn->connect_error){
                 die("Connection failed: " . $conn->connect_error);
             }else{
                 echo "connected" ."<br>";
             }
+*/
             //headername holen von Profil
             session_start();
             $headerName = $_SESSION['nameLog'];
             $userId = $_SESSION["userId"];
-            echo $userId;
         
-   /*     
-            //user_id holen
-            $sql = "SELECT USER_ID FROM user WHERE USER_NAME = '$headerName' ";
-            $result = $conn->query($sql);
-            while($row = $result->fetch_assoc()){
-                $userId = $row["USER_ID"];
-                echo $userId;
-            }
-*/
             //character_id holen
             $sql1 = "SELECT FIGUREN_ID FROM chosen WHERE USER_ID = '$userId' ";
             $result1 = $conn->query($sql1);
             while($row = $result1->fetch_assoc()){
                 $characterId = $row["FIGUREN_ID"];
-                echo $characterId;
             }
 
         
@@ -127,17 +117,13 @@
     <body>
         <div class="wrapper">
             <header>
-                <h1>Das Training wartet auf Dich!</h1>
-            </header>
-
-            <h2>Bist du bereit für das Training?</h2>
-                   <p> Aber Halt! Warte! Was nÜtzt es einem stÄrker und besser zu werden, wenn man sich verletzt? Darum solltest du dich vor jedem Training aufwÄrmen. Damit deine Muskeln ihre volle Leistung bringen kÖnnen und du bereit bist für jede weitere Herausforderung!
-                    Wenn du mit dem AufwÄrmen fertig bist beginne das Training:
-                    </p>
-
+                <h1>Boot Camp</h1>
+                <h2>Ready For Your Training?</h2>
+            </header>              
             <div class="training">
                 <img id="teachers" src="<?php echo $teacher; ?>">
                 <p id="instruction"><?php echo $description; ?></p>
+                <p> But wait! Why get better and stronger if you hurt yourself? So please warm up before you start your training!</p>
                 <img src="<?php echo $bild; ?>">
                 
                 

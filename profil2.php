@@ -15,19 +15,19 @@
 
         //build connection
         $conn = new mysqli($servername, $username, $password, $dbname);
-
+/*
         //check connection
         if($conn->connect_error){
             die("Connection failed: " . $conn->connect_error);
         }else{
             echo "connected" ."<br>";
         }
-
+*/
         //get name from index.php
         session_start();
         $headerName = $_SESSION['nameLog'];
         $usernameShow = $headerName;
-        echo $usernameShow;
+        
         
      
         //get user_id, xp and level from db
@@ -37,9 +37,6 @@
             $xp = $row["XP"];
             $level = $row["LEVEL"];
             $userId = $row["USER_ID"];
-            echo $xp;
-            echo $level;
-            echo $userId;
         }
 
         $_SESSION["userId"] = $userId;
@@ -49,7 +46,6 @@
         $resultF = $conn->query($sqlF);
         while($rowF = $resultF->fetch_assoc()){
             $characterId = $rowF["FIGUREN_ID"];
-            echo $characterId;
         }
             
        
@@ -59,38 +55,31 @@
         $result3 = $conn->query($sql3);
         while($row = $result3->fetch_assoc()){
             $characterName = $row["FIGUREN_NAME"];
-            echo $characterName;
         }
 
          //switch für richtige img_url
         switch($characterName){
             case ("Warrior"):
-                echo "Warrior";
                 //set url
                 $characterUrl = "images/warriorCard.png";
                 break;
             case ("Ranger"):
-                echo "Ranger";
                 //set url
                 $characterUrl = "images/rangerCard.png";
                 break;
             case ("Monk"):
-                echo "Monk";
                 //set url
                 $characterUrl = "images/monkCard.png";
                 break;
             case ("WarriorF"):
-                echo "WarriorF";
                 //set url
                 $characterUrl = "images/warriorFCard.png";
                 break;
             case ("RangerF"):
-                echo "RangerF";
                 //set url
                 $characterUrl = "images/rangerFCard.png";
                 break;
             case ("MonkF"):
-                echo "MonkF";
                 //set url
                 $characterUrl = "images/monkFCard.png";
                 break;
@@ -130,7 +119,7 @@
 
         var points = "<?php echo $xp?>";
         var posDiv = document.getElementById("pos"):      
-        posDiv.style.width = points + "%";
+        posDiv.style.width = points;
         document.write("<br>" + points);
 
     </script>

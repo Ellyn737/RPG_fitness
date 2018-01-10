@@ -18,13 +18,14 @@
 
             //build connection
             $conn = new mysqli($servername, $username, $password, $dbname);
-
+/*
             //check connection
             if($conn->connect_error){
                 die("Connection failed: " . $conn->connect_error);
             }else{
                 echo "connected" ."<br>";
             }
+*/
             //for variables from other pages
             session_start();
         

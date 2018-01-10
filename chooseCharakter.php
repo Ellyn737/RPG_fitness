@@ -12,14 +12,14 @@
 
         //build connection
         $conn = new mysqli($servername, $username, $password, $dbname);
-
+/*
         //check connection
         if($conn->connect_error){
             die("Connection failed: " . $conn->connect_error);
         }else{
             echo "connected" ."<br>";
         }
-
+*/
         //get yName from registration
         $yourName = $_SESSION['yName'];
     
@@ -44,8 +44,6 @@
                 $characterValue = $_POST["charVal"];
             }
           
-            
-            echo $characterValue;
                 
             
             //get character_id
@@ -54,13 +52,10 @@
                 while($row = mysqli_fetch_array($result)){
                     $characterID = $row["FIGUREN_ID"];
             }
-           
-            
-            echo $characterID;
             
         
             $date = date('Y-m-d H:i:s');
-            echo $date;
+            
             
             
             //insert ids, timestamp
