@@ -41,8 +41,8 @@
             echo $level;
             echo $userId;
         }
-       
- 
+
+        $_SESSION["userId"] = $userId;
 
         //character_id holen
         $sqlF = "SELECT FIGUREN_ID FROM chosen WHERE USER_ID = '$userId'";

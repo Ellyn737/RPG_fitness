@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
         <title>Training</title>
         <?php
-
+        
             //variables for connection
             $servername = "localhost";
             $username = "root";
@@ -23,7 +23,10 @@
             //headername holen von Profil
             session_start();
             $headerName = $_SESSION['nameLog'];
-
+            $userId = $_SESSION["userId"];
+            echo $userId;
+        
+   /*     
             //user_id holen
             $sql = "SELECT USER_ID FROM user WHERE USER_NAME = '$headerName' ";
             $result = $conn->query($sql);
@@ -31,7 +34,7 @@
                 $userId = $row["USER_ID"];
                 echo $userId;
             }
-
+*/
             //character_id holen
             $sql1 = "SELECT FIGUREN_ID FROM chosen WHERE USER_ID = '$userId' ";
             $result1 = $conn->query($sql1);
@@ -99,32 +102,21 @@
                     break;
                     
             }
-
+            
             //when the button is pushed
             if($_SERVER["REQUEST_METHOD"] == "POST"){
-            
-                //user_id holen
-                $sql = "SELECT USER_ID, XP FROM user WHERE USER_NAME = '$headerName' ";
-                $result = $conn->query($sql);
-                while($row = $result->fetch_assoc()){
-                    $userId = $row["USER_ID"];
-                    $xp = $row["XP"];
-                    echo $userId;
-                    echo $xp;
-                }
                 
-                $xp+=10;
                 
-                $sql2 = "UPDATE user SET XP='$xp' WHERE USER_ID = '$userId'";
-                if($conn->query($sql) === TRUE){
+                $sql2 = "UPDATE user SET XP = XP + 10 WHERE USER_NAME = '$headerName'";
+                if($conn->query($sql2) === TRUE){
                     echo "New record created succesfully";
                 }else{
-                    echo "Error; " .$sql. "<br>" .$conn->error;
+                    echo "Error; " .$sql2. "<br>" .$conn->error;    
                 }
 
             
 
-//            header("Location: http://localhost/rpg_fitness/profil2.php");
+            header("Location: http://localhost/rpg_fitness/profil2.php");
 
             $conn->close();
             //session beenden
