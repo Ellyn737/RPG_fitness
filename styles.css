@@ -245,20 +245,17 @@ text-align: center;
 }
 
 #teacher{
-    float: left;
-    position: relative;
+   padding: 20px, 0, 20px, 0;
 }
 
 #instruction{
     font-size: 18px;
-    float: right;
     position: relative;
     padding: 10px 0 10px 0;
     
 }
 
 #warning{
-    float: right;
     position: relative;
     padding-bottom: 20px;
 }

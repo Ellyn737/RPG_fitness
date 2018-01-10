@@ -67,12 +67,12 @@
                     break;
                 case("2"):
                     $bild = "images/workout_strength/workot_strengthM/workout_strengthM1.1.jpg";
-                    $teacher = "images/trainer2.jpg";
+                    $teacher = "images/rangerchief2.jpg";
                     $description = $rangerDes;
                     break;
                 case("3"):
                     $bild = "images/workout_strength/workot_strengthM/workout_strengthM1.1.jpg";
-                    $teacher = "images/rangerchief2.jpg";
+                    $teacher = "images/trainer2.jpg";
                     $description = $warriorDes;
                     break;
                 case("4"):
@@ -82,12 +82,12 @@
                     break;
                 case("5"):
                     $bild = "images/workout_strength/workot_strengthM/workout_strengthM1.1.jpg";
-                    $teacher = "images/trainer2.jpg";
+                    $teacher = "images/rangerchief2.jpg";
                     $description = $rangerDes;
                     break;
                 case("6"):
                     $bild = "images/workout_strength/workot_strengthM/workout_strengthM1.1.jpg";
-                    $teacher = "images/rangerchief2.jpg";
+                    $teacher = "images/trainer2.jpg";
                     $description = $warriorDes;
                     break;
                     
@@ -132,12 +132,14 @@
 
                 <div class="buttons">
                     <div class="slider">
-                        <input type="checkbox" name="slider" class="slider-checkbox" id="sliderSwitch" >
+                        <input type="checkbox" name="slider" class="slider-checkbox" id="sliderSwitch" onclick="setPoints()" >
                         <label class="slider-label" for="sliderSwitch">
                             <span class="slider-inner"></span>
                             <span class="slider-circle"></span>
                         </label>
                     </div>
+                    
+                    <p id="gotPoints"></p>
                     <form method="post" onclick="<?php echo $_SERVER["PHP_SELF"];?>">
                         <input type="button" class="gButtons" value="Cancel"  onclick="history.back()">
                         <input type="submit" class="gButtons" value="Finish" id="finish">
@@ -145,5 +147,12 @@
             </div>
 
         </div>
+        
+        <script type="text/javascript">
+            function setPoints(){
+                var p = document.getElementById("gotPoints");
+                p.innerHTML = "You earned 10 XP";
+            }
+        </script>
     </body>
 </html>
