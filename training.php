@@ -6,6 +6,9 @@
 
         <script type="text/javascript">
 
+
+            }
+
             var character_id ="<?php echo $characterId ?>";
             var bild = document.getElementById("bild");
 
@@ -26,15 +29,15 @@
                     bild.src="images\workout_yoga/workout_yoga1.jpg";
                     break;
                     //BILDER FÜR RANGER F
-                    case("5"):
-                   bild.src="images\workout_strength\workout_strengthW/workout_strengthW1.jpg";
+                case("5"):
+                    bild.src="images\workout_strength\workout_strengthW/workout_strengthW1.jpg";
                     break;
                 //WARRIOR F
-                case("6"):
-                    bild.src="images\workout_strength\workout_strengthW/workout_strengthW1.jpg";
+                case("6"): bild.src="images\workout_strength\workout_strengthW/workout_strengthW1.jpg";
                     break;
 
             }
+
 
         </script>
 
@@ -46,7 +49,7 @@
         //variables for connection
         $servername = "localhost";
         $username = "root";
-        $password = "";
+        $password = "test";
         $dbname = "rpg_fitness";
 
         //build connection
@@ -59,6 +62,9 @@
             echo "connected" ."<br>";
         }
         //headername holen von Profil
+        session_start();
+        $headerName = $_SESSION['nameLog'];
+
         //user_id holen
         $sql = "SELECT USER_ID, XP FROM user WHERE USER_NAME = '$headerName' ";
         $result = $conn->query($sql);
@@ -70,10 +76,10 @@
         }
 
         //character_id holen
-        $sql = "SELECT CHARACTER_ID FROM user_choose_character WHERE USER_ID = '$userId' ";
-        $result = $conn->query($sql);
-        while($row = $result->fetch_assoc()){
-            $characterId = $row["CHARACTER_ID"];
+        $sql1 = "SELECT FIGUREN_ID FROM chosen WHERE USER_ID = '$userId' ";
+        $result1 = $conn->query($sql1);
+        while($row = $result1->fetch_assoc()){
+            $characterId = $row["FIGUREN_ID"];
             echo $characterId;
         }
 
@@ -85,13 +91,14 @@
                 }else{
                     echo "Error; " .$sql. "<br>" .$conn->error;
                 }
-            }
 
-              header("Location: http://localhost/rpg_fitness/profil2.php");
+
+            header("Location: http://localhost/rpg_fitness/profil2.php");
 
             $conn->close();
-
+            }
         ?>
+
         <div class="wrapper">
             <header>
                 <h1>Das Training wartet auf Dich!</h1>
@@ -104,7 +111,7 @@
 
             <div class="training">
                 <!--Hier kommen die Trainingbilder + Beschreibung rein-->
-                <img id="bild" src="images/workout_yoga/workout_yoga1.jpg">
+                <img id="bild" src="<?php echo $characterId ?>">
 
                 <div class="instruction">
                     <p>Hier kommt die Beschreibung der Trainingseinheit rein!</p>
@@ -114,16 +121,15 @@
 
                 <div class="buttons">
                     <div class="slider">
-                        <input type="checkbox" name="slider" class="slider-checkbox" id="sliderSwitch">
+                        <input type="checkbox" name="slider" class="slider-checkbox" id="sliderSwitch" >
                         <label class="slider-label" for="sliderSwitch">
                             <span class="slider-inner"></span>
                             <span class="slider-circle"></span>
                         </label>
                     </div>
-
-                    <form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
+                    <form method="post" onclick="<?php echo $_SERVER["PHP_SELF"];?>">
                         <input type="button" class="gButtons" value="Cancel"  onclick="history.back()">
-                        <input type="submit" class="gButtons" value="Finish">
+                        <input type="submit" class="gButtons" value="Finish" id="finish">
                     </form>
             </div>
 
