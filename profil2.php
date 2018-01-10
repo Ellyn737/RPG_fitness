@@ -39,6 +39,7 @@
             $userId = $row["USER_ID"];
         }
 
+    
         $_SESSION["userId"] = $userId;
 
         //character_id holen
@@ -115,13 +116,13 @@
         </div>
     </div>
     
-    <script type="text/javascript">
+<script type="text/javascript">
+            var Div = document.getElementById("pos");
+            var points = parseInt('<?php echo $xp?>');
+            var posDiv = parseInt(points) + '%';
 
-        var points = "<?php echo $xp?>";
-        var posDiv = document.getElementById("pos"):      
-        posDiv.style.width = points;
-        document.write("<br>" + points);
+            Div.style.width = posDiv;
 
-    </script>
+        </script>
 </body>
 </html>

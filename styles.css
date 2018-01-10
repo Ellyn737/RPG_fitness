@@ -21,10 +21,9 @@ header{
     background-image: url(images/forrest.jpg);
     color:  #ffd633;
     font-size: 1.4em;
-
-    margin: 0 0 10px 20px;
+    margin: 0 0 10px 0;
     /*top right bottom left*/
-    padding: 50px 0 50px 0;
+    padding: 30px 0 30px 0;
     text-align: center;
     line-height: 100px;
 }
@@ -198,6 +197,7 @@ text-align: center;
 */
 /*start Training - Button*/
 #train{
+    font-family: play;
     float: right;
     width: 450px;
     height:100px;
@@ -211,11 +211,10 @@ text-align: center;
     margin-right: 0;
 }
 
-
 #train:hover {
     background: #c29b00;
+    
 }
-
 
 
 /*Levelbar*/
@@ -242,7 +241,26 @@ text-align: center;
 #pos {
     background-color: #ffd633;
     height: 100%;
-    width: 30%;
+    width: 0%;
+}
+
+#teacher{
+    float: left;
+    position: relative;
+}
+
+#instruction{
+    font-size: 18px;
+    float: right;
+    position: relative;
+    padding: 10px 0 10px 0;
+    
+}
+
+#warning{
+    float: right;
+    position: relative;
+    padding-bottom: 20px;
 }
 
 

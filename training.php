@@ -67,12 +67,12 @@
                     break;
                 case("2"):
                     $bild = "images/workout_strength/workot_strengthM/workout_strengthM1.1.jpg";
-                    $teacher = "images/trainer.jpg";
+                    $teacher = "images/trainer2.jpg";
                     $description = $rangerDes;
                     break;
                 case("3"):
                     $bild = "images/workout_strength/workot_strengthM/workout_strengthM1.1.jpg";
-                    $teacher = "images/rangerchief.jpg";
+                    $teacher = "images/rangerchief2.jpg";
                     $description = $warriorDes;
                     break;
                 case("4"):
@@ -82,12 +82,12 @@
                     break;
                 case("5"):
                     $bild = "images/workout_strength/workot_strengthM/workout_strengthM1.1.jpg";
-                    $teacher = "images/trainer.jpg";
+                    $teacher = "images/trainer2.jpg";
                     $description = $rangerDes;
                     break;
                 case("6"):
                     $bild = "images/workout_strength/workot_strengthM/workout_strengthM1.1.jpg";
-                    $teacher = "images/rangerchief.jpg";
+                    $teacher = "images/rangerchief2.jpg";
                     $description = $warriorDes;
                     break;
                     
@@ -123,7 +123,7 @@
             <div class="training">
                 <img id="teachers" src="<?php echo $teacher; ?>">
                 <p id="instruction"><?php echo $description; ?></p>
-                <p> But wait! Why get better and stronger if you hurt yourself? So please warm up before you start your training!</p>
+                <p id="warning"> But wait! Why get better and stronger if you hurt yourself? So please warm up before you start your training!</p>
                 <img src="<?php echo $bild; ?>">
                 
                 
